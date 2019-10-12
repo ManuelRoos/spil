@@ -1,0 +1,176 @@
+#top-menu {
+  background-color: black;
+  position: fixed;
+  /* Set the navbar to fixed position */
+  width: 100%;
+}
+
+#blackjack {
+  text-align: center;
+  font-family: sans-serif;
+  background-color: green;
+}
+
+.color-blackjack {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: green;
+}
+
+.saldo {
+  color: white;
+}
+
+.navbar-nav {
+  flex: 1;
+  margin: auto;
+  display: flex;
+  text-align: left;
+}
+
+.top-bar-title {
+  text-align: center;
+  color: white;
+  vertical-align: middle;
+  top: 10px;
+}
+
+.saldo {
+  text-align: right;
+  color: white;
+  top: 5px;
+}
+
+.table-blackjack {
+  text-align: center;
+  display: inline-block;
+  max-width: 75%;
+}
+
+.card-size {
+  max-width: 75%;
+}
+
+.player {
+  text-align: center;
+  font-size: 38px;
+}
+
+.div-blackjack {
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.player-name {
+  text-align: center;
+  font-size: 78px;
+}
+
+@media (max-width: 9999px) {
+  .table-blackjack {
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 2000px) {
+  .table-blackjack {
+    /* font-size: 30px !important; */
+    max-width: 75% !important;
+  }
+}
+
+@media (max-width: 1340px) {
+  .player-name {
+    font-size: 50px !important;
+  }
+}
+
+@media (max-width: 1120px) {
+  .player-name {
+    font-size: 30px !important;
+  }
+  .blackjackSpil {
+    padding: 6px 20px !important;
+  }
+  .blackjackStop {
+    padding: 6px 20px !important;
+  }
+}
+
+@media (max-width: 835px) {
+  .blackjackSpil {
+    font-size: 20px !important;
+    padding: 3px 10px !important;
+  }
+  .blackjackStop {
+    font-size: 20px !important;
+    padding: 3px 10px !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .player-name {
+    font-size: 15px !important;
+  }
+  .blackjackSpil {
+    font-size: 10px !important;
+    padding: 3px 4px !important;
+  }
+  .blackjackStop {
+    font-size: 10px !important;
+    padding: 3px 4px !important;
+  }
+}
+
+.blackjackSpil {
+  box-shadow: 0px 0px 0px 2px #9fb4f2;
+  background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color: #7892c2;
+  border-radius: 10px;
+  border: 1px solid #4e6096;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 28px;
+  padding: 12px 37px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
+}
+
+.blackjackSpil:hover {
+  background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+  background-color: #476e9e;
+}
+
+.blackjackSpil:active {
+  position: relative;
+  top: 1px;
+}
+
+.blackjackStop {
+  box-shadow: 0px 0px 0px 2px #9fb4f2;
+  background: linear-gradient(to bottom, #ed2d63 5%, #b81111 100%);
+  background-color: #ed2d63;
+  border-radius: 10px;
+  border: 1px solid #4e6096;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 28px;
+  padding: 12px 37px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
+}
+
+.blackjackStop:hover {
+  background: linear-gradient(to bottom, #b81111 5%, #ed2d63 100%);
+  background-color: #476e9e;
+}
+
+.blackjackStop:active {
+  position: relative;
+  top: 1px;
+}

@@ -17,6 +17,14 @@
   background-color: grey;
 }
 
+#regler {
+  background-color: blue;
+}
+
+.rules {
+  height: 1000px;
+}
+
 .jp-gevinst-size {
   font-size: 60px;
 }
@@ -105,6 +113,12 @@
 }
 .jp-text-size {
   font-size: 20px;
+}
+.jp-result-grey {
+  color: grey;
+}
+.jp-result-purple {
+  color: purple;
 }
 
 @media (max-width: 9999px) {
@@ -227,10 +241,10 @@
     font-size: 10px !important;
   }
   .icon-size {
-    max-width: 25% !important;
+    max-width: 50% !important;
   }
   .jp-gevinst-size{
-    font-size: 20px !important;
+    font-size: 40px !important;
   }
 }
 
@@ -258,10 +272,10 @@
     font-size: 7px !important;
   }
   .icon-size {
-    max-width: 25% !important;
+    max-width: 35% !important;
   }
   .jp-gevinst-size{
-    font-size: 15px !important;
+    font-size: 30px !important;
   }
 }
 
@@ -339,6 +353,32 @@
 }
 
 .blackjackStop:active {
+  position: relative;
+  top: 1px;
+}
+
+.jackpotStart {
+  box-shadow: 0px 0px 0px 2px #9fb4f2;
+  background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color: #7892c2;
+  border-radius: 10px;
+  border: 1px solid #4e6096;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 12px 37px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
+}
+
+.jackpotStart:hover {
+  background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+  background-color: #476e9e;
+}
+
+.jackpotStart:active {
   position: relative;
   top: 1px;
 }

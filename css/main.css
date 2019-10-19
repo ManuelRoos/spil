@@ -11,10 +11,33 @@
   background-color: green;
 }
 
+#jackpot {
+  text-align: center;
+  font-family: sans-serif;
+  background-color: grey;
+}
+
+.jp-gevinst-size {
+  font-size: 60px;
+}
+
+.result-color-red {
+  color: red;
+}
+
+.result-color-blue {
+  color: blue;
+}
+
 .color-blackjack {
   margin: 0;
   font-family: sans-serif;
   background-color: green;
+}
+.color-jackpot {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: grey;
 }
 
 .saldo {
@@ -47,6 +70,13 @@
   max-width: 75%;
 }
 
+.table-jackpot {
+  text-align: center;
+  display: inline-block;
+  max-width: 75%;
+  color: white;
+}
+
 .card-size {
   max-width: 75%;
 }
@@ -67,16 +97,18 @@
   font-size: 78px;
 }
 
-@media (max-width: 9999px) {
-  .table-blackjack {
-    max-width: 50% !important;
-  }
+.bj-gevinst {
+  font-size: 25px;
 }
 
-@media (max-width: 2000px) {
+@media (max-width: 9999px) {
   .table-blackjack {
     /* font-size: 30px !important; */
     max-width: 75% !important;
+  }
+
+  .bj-gevinst {
+    font-size: 25px !important;
   }
 }
 
@@ -84,43 +116,122 @@
   .player-name {
     font-size: 50px !important;
   }
+
+  .bj-gevinst {
+    font-size: 25px !important;
+  }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1200px) {
   .player-name {
     font-size: 30px !important;
   }
+
+  .blackjackRestart {
+    padding: 6px 20px !important;
+  }
+
   .blackjackSpil {
     padding: 6px 20px !important;
   }
+
   .blackjackStop {
     padding: 6px 20px !important;
+  }
+
+  .bj-gevinst {
+    font-size: 25px !important;
+  }
+}
+
+@media (max-width: 975px) {
+  .blackjackRestart {
+    font-size: 15px !important;
+    padding: 4px 15px !important;
+  }
+
+  .blackjackSpil {
+    font-size: 15px !important;
+    padding: 4px 15px !important;
+  }
+
+  .blackjackStop {
+    font-size: 15px !important;
+    padding: 4px 15px !important;
+  }
+
+  .bj-gevinst {
+    font-size: 20px !important;
   }
 }
 
 @media (max-width: 835px) {
-  .blackjackSpil {
-    font-size: 20px !important;
+  .blackjackRestart {
     padding: 3px 10px !important;
   }
-  .blackjackStop {
-    font-size: 20px !important;
+
+  .blackjackSpil {
     padding: 3px 10px !important;
+  }
+
+  .blackjackStop {
+    padding: 3px 10px !important;
+  }
+
+  .bj-gevinst {
+    font-size: 15px !important;
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 700px) {
   .player-name {
     font-size: 15px !important;
   }
+
+  .blackjackRestart {
+    font-size: 10px !important;
+    padding: 3px 4px !important;
+  }
+
   .blackjackSpil {
     font-size: 10px !important;
     padding: 3px 4px !important;
   }
+
   .blackjackStop {
     font-size: 10px !important;
     padding: 3px 4px !important;
   }
+
+  .bj-gevinst {
+    font-size: 10px !important;
+  }
+}
+
+.blackjackRestart {
+  box-shadow: 0px 0px 0px 2px #9fb4f2;
+  background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color: #7892c2;
+  border-radius: 10px;
+  border: 1px solid #4e6096;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 12px 37px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
+}
+
+.blackjackRestart:hover {
+  background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+  background-color: #476e9e;
+}
+
+.blackjackRestart:active {
+  position: relative;
+  top: 1px;
 }
 
 .blackjackSpil {
@@ -133,7 +244,7 @@
   cursor: pointer;
   color: #ffffff;
   font-family: Arial;
-  font-size: 28px;
+  font-size: 20px;
   padding: 12px 37px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #283966;
@@ -159,7 +270,7 @@
   cursor: pointer;
   color: #ffffff;
   font-family: Arial;
-  font-size: 28px;
+  font-size: 20px;
   padding: 12px 37px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #283966;

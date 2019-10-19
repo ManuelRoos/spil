@@ -1,3 +1,6 @@
+let spil = "";
+
+// blackjack variables:
 let remainingNumberOfCardsInDeck = 52,
   nextPlayerCard = 1,
   nextHouseCard = 1,
@@ -20,11 +23,20 @@ let remainingNumberOfCardsInDeck = 52,
   resultatTilHTML = document.querySelector(".result"),
   minSaldo = document.querySelector(".saldo-visning"),
   resultatFelt = document.getElementById("resultat-felt");
+
+// jackpot variables:
+let firstIcon = 0,
+  secondIcon = 0,
+  thirdIcon = 0,
+  winnings = 0,
+  jpresult,
+  jpresultatTilHTML = document.querySelector(".jp-gevinst-text"),
+  jpWinningsResult = document.getElementById("jpresultat");
+
 shuffleCards();
 rydBord();
 
 document.querySelector(".blackjackSpil").addEventListener("click", play);
-
 
 function play() {
   if (saldo > 0) {
@@ -83,7 +95,8 @@ function runHouseCards() {
         act = false;
         restartButtonDisabled(act);
         resultatFelt.classList.add("result-color-blue");
-        addToSaldo();
+        spil = "blackjack";
+        addToSaldo(spil);
         break;
       }
     }
@@ -102,11 +115,9 @@ function houseCardDraw() {
   nextHouseCard++;
 }
 
-
-
 function calculatePlayerPoints() {
   if (playerPoints === 21) {
-    duFik = "Du fik 21."
+    duFik = "Du fik 21.";
     act = true;
     spilButtonDisabled(act);
     stopButtonDisabled(act);
@@ -122,7 +133,7 @@ function calculatePlayerPoints() {
     resultatFelt.classList.add("result-color-red");
     givResultat();
   } else if (nextPlayerCard === 5) {
-    duFik = "Du fik 5 kort under."
+    duFik = "Du fik 5 kort under.";
     act = true;
     spilButtonDisabled(act);
     stopButtonDisabled(act);
@@ -133,14 +144,6 @@ function calculatePlayerPoints() {
 
 }
 
-
-
-
-
-
-
-
-
 document.querySelector(".blackjackStop").addEventListener("click", stop);
 
 document.querySelector(".blackjackRestart").addEventListener("click", function() {
@@ -149,15 +152,16 @@ document.querySelector(".blackjackRestart").addEventListener("click", function()
   restartButtonDisabled(act);
 });
 
-
-
-
-
-function addToSaldo() {
-  if (playerPoints === 21) {
-    saldo += 25;
-  } else {
-    saldo += 15;
+function addToSaldo(spil) {
+  if (spil === "blackjack") {
+    if (playerPoints === 21) {
+      saldo += 25;
+    } else {
+      saldo += 15;
+    }
+  }
+  if (spil === "jackpot"){
+    saldo += winnings;
   }
   showSaldo = saldo + " kr.";
   minSaldo.innerHTML = showSaldo;
@@ -168,17 +172,11 @@ function givResultat() {
   resultatTilHTML.innerHTML = duFik + "<br/>" + bankenFik + "<br/>" + rundensResultat;
 }
 
-
-
-
-
-
-
 function calculateHousePoints() {
   if (nextHouseCard > 1) {
     if (housePoints > 21) {
       spillerVinder = true;
-      bankenFik = "Banken fik for meget."
+      bankenFik = "Banken fik for meget.";
     } else if (housePoints === 21 || housePoints >= playerPoints) {
       bankenFik = "Banken fik " + housePoints + ".";
       bankenVinder = true;
@@ -200,22 +198,14 @@ function turnCard() {
   document.getElementsByClassName(cardPlace)[0].setAttribute("src", "images/cards/" + card + ".png");
 }
 
-
-
 function beregnSpillerPoint() {
   beregnetSpillerPoint = spillerKort1Vaerdi + spillerKort2Vaerdi + spillerKort3Vaerdi + spillerKort4Vaerdi + spillerKort5Vaerdi;
   return beregnetSpillerPoint;
 }
 
-
-
-
-
 function restartButtonDisabled(act) {
   document.querySelector(".blackjackRestart").disabled = act;
 }
-
-
 
 function spilButtonDisabled(act) {
   document.querySelector(".blackjackSpil").disabled = act;
@@ -225,8 +215,6 @@ function stopButtonDisabled(act) {
   document.querySelector(".blackjackStop").disabled = act;
 }
 
-
-
 function stop() {
   act = true;
   restartButtonDisabled(act);
@@ -234,12 +222,6 @@ function stop() {
   stopButtonDisabled(act);
   runHouseCards();
 }
-
-
-
-
-
-
 
 function rydBord() {
   for (let x = 0; x < 6; x++) {
@@ -335,4 +317,56 @@ function shuffleCards() {
     ['KD', 10]
 
   ];
+}
+
+
+document.querySelector(".jackpotStart").addEventListener("click", jackpotRoll);
+
+function jackpotRoll() {
+  saldo -= 5;
+  minSaldo.innerHTML = saldo + " kr.";
+  firstIcon = Math.floor((Math.random() * 17) + 1);
+  secondIcon = Math.floor((Math.random() * 17) + 1);
+  thirdIcon = Math.floor((Math.random() * 17) + 1);
+  showIcons();
+  jpresult = controlIfWinnings();
+  calculatePrize();
+}
+
+function calculatePrize() {
+  jpWinningsResult.classList.remove("jp-result-grey");
+  jpWinningsResult.classList.add("jp-result-purple");
+  if (jpresult === 0) {
+    jpresultatTilHTML.innerHTML = "Du taber";
+  } else {
+    jpresultatTilHTML.innerHTML = "Du vinder " + jpresult + " kr.";
+  }
+  spil = "jackpot";
+  addToSaldo(spil);
+}
+
+
+function controlIfWinnings() {
+  winnings = 0;
+  if (firstIcon === secondIcon && firstIcon === thirdIcon) {
+    if (firstIcon === 3) {
+      winnings = 500;
+    } else {
+      winnings = 200;
+    }
+  } else if (firstIcon === secondIcon || firstIcon === thirdIcon || secondIcon === thirdIcon) {
+    winnings = 50;
+  } else if (firstIcon === 3) {
+    winnings = 40;
+  } else {
+    winnings = 0;
+  }
+  return winnings;
+}
+
+
+function showIcons() {
+  document.getElementsByClassName("jp-1")[0].setAttribute("src", "images/jackpot/" + firstIcon + ".png");
+  document.getElementsByClassName("jp-2")[0].setAttribute("src", "images/jackpot/" + secondIcon + ".png");
+  document.getElementsByClassName("jp-3")[0].setAttribute("src", "images/jackpot/" + thirdIcon + ".png");
 }

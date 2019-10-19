@@ -15,144 +15,263 @@
 </head>
 
 <body>
-<section id="top-menu">
-  <div class="container-fluid row">
-<div class="col-3">
+  <section id="top-menu">
+    <div class="container-fluid row">
+      <div class="col-3">
 
-    <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav ml-auto">
-          
-          <li class="nav-item">
-            <p>.</p>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Blackjack</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Jackpot</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Regler</a>
-          </li>
-        </ul>
+        <!-- Nav Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+
+              <li class="nav-item">
+                <p>.</p>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#blackjack">Blackjack</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#jackpot">Jackpot</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#regler">Regler</a>
+              </li>
+            </ul>
+          </div>
+
+        </nav>
       </div>
-      
-    </nav>
-    </div>
-    
-    <!-- Overskrift/titel -->
-    <div class="col-6 top-bar-title">
-      <p class="navbar-brand top-bar-title-text">Manuels Spilleside</p>
-    </div>
-    
-    <!-- Saldo -->
-    <div class="col-3 saldo">
-      <nobr>Saldo:</nobr>
-      <p class="saldo-visning">300 kr.</p>
-    </div>
-    
+
+      <!-- Overskrift/titel -->
+      <div class="col-6 top-bar-title">
+        <p class="navbar-brand top-bar-title-text">Manuels Spilleside</p>
+      </div>
+
+      <!-- Saldo -->
+      <div class="col-3 saldo">
+        <nobr>Saldo:</nobr>
+        <p class="saldo-visning">300 kr.</p>
+      </div>
+
     </div>
     </div>
 
-    
-</section>
+
+  </section>
 
 
 
-<p>Der skal stå noget her, ellers er der mellemrum mellem top menu??</p>
-
-
-
-
+  <p>Der skal stå noget her, ellers er der mellemrum mellem top og menu??</p>
 
 
 
 
-<!-- Mellemrum, der ændres ift. size -->
-<div class="container-fluid row color-blackjack">
-  <div class="col-4">
-    <br>
+
+
+
+  <section id="blackjack">
+    <!-- Mellemrum, der ændres ift. size -->
+    <div class="container-fluid row color-blackjack">
+      <div class="col-4">
+        <br>
+      </div>
+      <div class="col-4">
+        <br><br>
+      </div>
+      <div class="col-4">
+        <br>
+      </div>
+    </div>
+
+
+
+    <!-- Tabel med kort, knapper og beskeder -->
+    <table class="table-blackjack">
+      <tr>
+        <td></td>
+        <td><img class="card-size ekstra-kort pkort-3" src="" alt=""> </td>
+        <td class="player" colspan="2">
+          <p class="player-name">Dig</p>
+        </td>
+        <td></td>
+        <td class="player" colspan="2">
+          <p class="player-name">"Banken"</p>
+        </td>
+        <td><img class="card-size ekstra-kort dkort-3" src="" alt=""> </td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td><img class="card-size ekstra-kort pkort-4" src="" alt=""> </td>
+        <td><img class="card-size pkort-1 start-kort" src="images/cards/gray_back.png" alt=""> </td>
+        <td><img class="card-size pkort-2 start-kort" src="images/cards/gray_back.png" alt=""> </td>
+        <td></td>
+        <td><img class="card-size dkort-1 start-kort" src="images/cards/gray_back.png" alt=""> </td>
+        <td><img class="card-size dkort-2 start-kort" src="images/cards/gray_back.png" alt=""> </td>
+        <td><img class="card-size ekstra-kort dkort-4" src="" alt=""> </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><img class="card-size ekstra-kort pkort-5" src="" alt=""> </td>
+        <td colspan="2">
+          <p class="bj-gevinst">Indskud = 5 kr.<br>Gevinst = 10 kr. <br>Blackjack = 20 kr.</p>
+        </td>
+
+        <td></td>
+        <td colspan="2">
+          <div id="resultat-felt">
+            <p class="bj-gevinst result"></p>
+          </div>
+
+        </td>
+
+        <td><img class="card-size ekstra-kort dkort-5" src="" alt=""> </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td colspan="2"><button id="blackjackRestartKnap" class="blackjackRestart">Nyt spil</button></td>
+
+        <td></td>
+        <td><button id="blackjackSpilKnap" class="blackjackSpil">Nyt kort</button></td>
+
+        <td><button id="blackjackStopKnap" class="blackjackStop">Stop/stå</button></td>
+
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+
+
+    <!-- Mellemrum, der ændres ift. size -->
+    <div class="container-fluid row color-blackjack">
+      <div class="col-3 col-md-6 col-lg-12">
+        <br><br>
+      </div>
+      <div class="col-3 col-md-6 col-lg-12">
+        <br><br>
+      </div>
+      <div class="col-3 col-md-6 col-lg-12">
+        <br><br>
+      </div>
+    </div>
+  </section>
+  <section id="jackpot">
+    <div class="container-fluid row color-jackpot">
+      <div class="col-3 col-md-6 col-lg-12">
+        <br><br>
+      </div>
+      <div class="col-3 col-md-6 col-lg-12">
+        <br><br>
+      </div>
+      <div class="col-3 col-md-6 col-lg-12">
+        <br><br>
+      </div>
+      <div class="col-3 col-md-6 col-lg-12">
+        <br><br>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <table class="table-jackpot">
+      <tr>
+        <td>
+        <td colspan="3">
+          <table border="3" cellspacing="1">
+            <tr>
+              <td>
+                <img src="images/jackpot/1.png" alt="">
+              </td>
+              <td><img src="images/jackpot/1.png" alt=""></td>
+              <td><img src="images/jackpot/1.png" alt=""></td>
+            </tr>
+          </table>
+
+
+        <td></td>
+      </tr>
+
+      <tr>
+        <td colspan="5">
+          <br>
+          <br>
+          <p class="jp-gevinst-size">Gevinster</p>
+        </td>
+
+      <tr>
+        <td></td>
+        <td><img class="jp-1" src="images/jackpot/3.png" alt=""></td>
+        <td><img class="jp-2" src="images/jackpot/3.png" alt=""></td>
+        <td><img class="jp-3" src="images/jackpot/3.png" alt=""></td>
+        <td> 3 x BAR = 500 kr.</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><img src="images/jackpot/5.png" alt=""></td>
+        <td><img src="images/jackpot/5.png" alt=""></td>
+        <td><img src="images/jackpot/5.png" alt=""></td>
+        <td> 3 ens = 200 kr.</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><img src="images/jackpot/17.png" alt=""></td>
+        <td><img src="images/jackpot/17.png" alt=""></td>
+        <td><img src="images/jackpot/10.png" alt=""></td>
+        <td> 2 ens = 50 kr.</td>
+      </tr>
+      <tr>
+        <td style="color: grey;"> BAR i 1. felt = 40 kr.</td>
+        <td><img src="images/jackpot/3.png" alt=""></td>
+        <td><img src="images/jackpot/12.png" alt=""></td>
+        <td><img src="images/jackpot/13.png" alt=""></td>
+        <td> BAR i 1. felt = 40 kr.</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><img src="images/jackpot/1.png" alt=""></td>
+        <td><img src="images/jackpot/2.png" alt=""></td>
+        <td><img src="images/jackpot/11.png" alt=""></td>
+        <td> 3 forskellige = 0 kr.</td>
+      </tr>
+
+    </table>
+  </section>
+
+  <div class="container-fluid row color-jackpot">
+    <div class="col-3 col-md-6 col-lg-12">
+      <br><br><br><br><br><br>
+    </div>
+    <div class="col-3 col-md-6 col-lg-12">
+      <br><br><br><br><br><br>
+    </div>
+    <div class="col-3 col-md-6 col-lg-12">
+      <br><br><br><br><br><br>
+    </div>
+    <div class="col-3 col-md-6 col-lg-12">
+      <br><br><br><br><br><br>
+    </div>
+
   </div>
-  <div class="col-4">
-    <br><br>
-  </div>
-  <div class="col-4 col sm-12">
-    <br>
-  </div>
-</div>
-
-<section id="blackjack">
-
-  <!-- Tabel med kort, knapper og beskeder -->
-  <table class="table-blackjack">
-    <tr>
-      <td></td>
-      <td><img class="card-size ekstra-kort pkort-3" src="" alt=""> </td>
-      <td class="player" colspan="2">
-        <p class="player-name">Dig</p>
-      </td>
-      <td></td>
-      <td class="player" colspan="2">
-        <p class="player-name">"Banken"</p>
-      </td>
-      <td><img class="card-size ekstra-kort dkort-3" src="" alt=""> </td>
-      <td></td>
-    </tr>
-
-    <tr>
-      <td></td>
-      <td><img class="card-size ekstra-kort pkort-4" src="" alt=""> </td>
-      <td><img class="card-size pkort-1" src="images/cards/gray_back.png" alt=""> </td>
-      <td><img class="card-size pkort-2" src="images/cards/gray_back.png" alt=""> </td>
-      <td></td>
-      <td><img class="card-size dkort-1" src="images/cards/gray_back.png" alt=""> </td>
-      <td><img class="card-size dkort-2" src="images/cards/gray_back.png" alt=""> </td>
-      <td><img class="card-size ekstra-kort dkort-4" src="" alt=""> </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><img class="card-size ekstra-kort pkort-5" src="" alt=""> </td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><img class="card-size ekstra-kort dkort-5" src="" alt=""> </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button id="blackjackSpilKnap" class="blackjackSpil">Spil</button></td>
-      <td></td>
-      <td><button id="blackjackStopKnap" class="blackjackStop">Stop</button></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-
-</section>
-
-
-
-
 
 
 
   <!-- Site JavaScript -->
   <script src="js/main.js"></script>
- 
- <!-- Bootstrap -->
+
+  <!-- Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

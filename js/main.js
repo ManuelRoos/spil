@@ -1,76 +1,205 @@
-let p1 = [], p2 = [], p3 = [], p4 = [], p5 = [],
-  d1 = [], d2 = [], d3 = [], d4 = [], d5 = [],
-  alleKort = [],
-  spilletKortIRundenForDealer = 0, spilletKortIRundenForSpiller = 0,
-  spillerKort1 = 0, spillerKort2 = 0, spillerKort3 = 0, spillerKort4 = 0, spillerKort5 = 0,
-  spillerKort1Vaerdi = 0, spillerKort2Vaerdi = 0, spillerKort3Vaerdi = 0, spillerKort4Vaerdi = 0, spillerKort5Vaerdi = 0,
-  dealerKort1 = 0; dealerKort2 = 0; dealerKort3 = 0; dealerKort4 = 0; dealerKort5 = 0,
-  dealerKort1Vaerdi = 0, dealerKort2Vaerdi = 0, dealerKort3Vaerdi = 0, dealerKort4Vaerdi = 0, dealerKort5Vaerdi = 0,
-  antalKort = 52,
-  randomNum = 0;
-  act = false;
-blandKort();
+let remainingNumberOfCardsInDeck = 52,
+  nextPlayerCard = 1,
+  nextHouseCard = 1,
+  card = "",
+  randomNumberBlackjack = 0,
+  cardAndValue = [],
+  cardValue = 0,
+  cards = [],
+  saldo = 300,
+  cardPlace = "",
+  playerPoints = 0,
+  housePoints = 0,
+  act = true,
+  spillerVinder = false,
+  bankenVinder = false,
+  showSaldo = "",
+  duFik = "",
+  bankenFik = "",
+  rundensResultat = "",
+  resultatTilHTML = document.querySelector(".result"),
+  minSaldo = document.querySelector(".saldo-visning"),
+  resultatFelt = document.getElementById("resultat-felt");
+shuffleCards();
 rydBord();
 
-
-document.querySelector(".blackjackSpil").addEventListener("click", spil);
-
-document.querySelector(".blackjackStop").addEventListener("click", stop);
-
-function spil() {
-   if (spilletKortIRundenForSpiller < 2) {
-    randomNum = Math.floor(Math.random() * antalKort);
-    p1 = alleKort.splice(randomNum, 1);
-    spillerKort1Vaerdi = parseInt(p1[0][1]);
-    spillerKort1 = p1[0][0];
-    antalKort--;
-    spilletKortIRundenForSpiller++;
-    let cardPlace = "pkort-1";
-    alert(cardPlace + " " + spillerKort1);
-    turnCard(cardPlace, spillerKort1);
+document.querySelector(".blackjackSpil").addEventListener("click", play);
 
 
-    randomNum = Math.floor(Math.random() * antalKort);
-    p2 = alleKort.splice(randomNum, 1);
-    spillerKort2Vaerdi = parseInt(p2[0][1]);
-    spillerKort2 = p2[0][0];
-    antalKort--;
-    spilletKortIRundenForSpiller++;
-    
-    randomNum = Math.floor(Math.random() * antalKort);
-    d1 = alleKort.splice(randomNum, 1);
-    dealerKort1Vaerdi = parseInt(d1[0][1]);
-    dealerKort1 = d1[0][0];
-    antalKort--;
-    spilletKortIRundenForDealer++;
-    
-    randomNum = Math.floor(Math.random() * antalKort);
-    d2 = alleKort.splice(randomNum, 1);
-    dealerKort2Vaerdi = parseInt(d2[0][1]);
-    dealerKort2 = d1[0][0];
-    antalKort--;
-    spilletKortIRundenForDealer++;
-    spillerPoint = beregnSpillerPoint();
+function play() {
+  if (saldo > 0) {
 
+    act = false;
+    stopButtonDisabled();
+    // første 2 kort
+    if (nextPlayerCard === 1) {
+      saldo -= 5;
+      minSaldo.innerHTML = saldo + " kr.";
+      for (let i = 0; i < 2; i++) {
+        playerCardDraw();
+      }
+      runHouseCards();
+    }
+    // Hvis 3 kort
+    else {
+      playerCardDraw();
+    }
+  } else {
+    alert("Du har ikke nok penge på kontoen. Refresh siden for at starte forfra.");
   }
-  else if (spilletKortIRundenForSpiller === 2) {
-    p++;
+}
+
+function playerCardDraw() {
+  generateCard();
+  cardPlace = "pkort-" + nextPlayerCard;
+  playerPoints += cardValue;
+  turnCard();
+  calculatePlayerPoints();
+  nextPlayerCard++;
+}
+
+function generateCard() {
+  randomNumberBlackjack = Math.floor(Math.random() * remainingNumberOfCardsInDeck);
+  cardAndValue = cards.splice(randomNumberBlackjack, 1);
+  removeCard();
+  card = cardAndValue[0][0];
+  cardValue = parseInt(cardAndValue[0][1]);
+}
+
+function runHouseCards() {
+  if (nextHouseCard === 2) {
+    for (let i = 0; i < 4; i++) {
+      houseCardDraw();
+      if (bankenVinder === true) {
+        rundensResultat = "Banken vinder.";
+        resultatFelt.classList.add("result-color-red");
+        givResultat();
+        act = false;
+        restartButtonDisabled(act);
+        break;
+      }
+      if (spillerVinder === true) {
+        rundensResultat = "Du vinder.";
+        act = false;
+        restartButtonDisabled(act);
+        resultatFelt.classList.add("result-color-blue");
+        addToSaldo();
+        break;
+      }
+    }
+  } else {
+    houseCardDraw();
   }
-  else if (spilletKortIRundenForSpiller === 3) {
-    p++;
-  }
-  else if (spilletKortIRundenForSpiller === 4) {
+}
+
+
+function houseCardDraw() {
+  generateCard();
+  cardPlace = "dkort-" + nextHouseCard;
+  housePoints += cardValue;
+  turnCard();
+  vinderSpiller = calculateHousePoints();
+  nextHouseCard++;
+}
+
+
+
+function calculatePlayerPoints() {
+  if (playerPoints === 21) {
+    duFik = "Du fik 21."
     act = true;
-    buttonActivasion(act);
-
+    spilButtonDisabled(act);
+    stopButtonDisabled(act);
+    runHouseCards();
+  } else if (playerPoints > 21) {
+    duFik = "Du fik for meget.";
+    rundensResultat = "Du taber.";
+    act = true;
+    spilButtonDisabled(act);
+    stopButtonDisabled(act);
+    act = false;
+    restartButtonDisabled(act);
+    resultatFelt.classList.add("result-color-red");
+    givResultat();
+  } else if (nextPlayerCard === 5) {
+    duFik = "Du fik 5 kort under."
+    act = true;
+    spilButtonDisabled(act);
+    stopButtonDisabled(act);
+    runHouseCards();
+  } else {
+    duFik = "Du fik " + playerPoints + ".";
   }
 
 }
 
-function turnCard(place, turnedCard){
-  console.log(place);
-  document.getElementsByClassName(place)[0].setAttribute("src", "images/cards/" + turnedCard + ".png");
+
+
+
+
+
+
+
+
+document.querySelector(".blackjackStop").addEventListener("click", stop);
+
+document.querySelector(".blackjackRestart").addEventListener("click", function() {
+  rydBord();
+  act = true;
+  restartButtonDisabled(act);
+});
+
+
+
+
+
+function addToSaldo() {
+  if (playerPoints === 21) {
+    saldo += 25;
+  } else {
+    saldo += 15;
   }
+  showSaldo = saldo + " kr.";
+  minSaldo.innerHTML = showSaldo;
+  givResultat();
+}
+
+function givResultat() {
+  resultatTilHTML.innerHTML = duFik + "<br/>" + bankenFik + "<br/>" + rundensResultat;
+}
+
+
+
+
+
+
+
+function calculateHousePoints() {
+  if (nextHouseCard > 1) {
+    if (housePoints > 21) {
+      spillerVinder = true;
+      bankenFik = "Banken fik for meget."
+    } else if (housePoints === 21 || housePoints >= playerPoints) {
+      bankenFik = "Banken fik " + housePoints + ".";
+      bankenVinder = true;
+    } else if (nextHouseCard === 5) {
+      bankenFik = "Banken fik 5 kort under.";
+      bankenVinder = true;
+    } else {
+      //Ingenting
+    }
+  }
+  return spillerVinder;
+}
+
+function removeCard() {
+  remainingNumberOfCardsInDeck--;
+}
+
+function turnCard() {
+  document.getElementsByClassName(cardPlace)[0].setAttribute("src", "images/cards/" + card + ".png");
+}
+
 
 
 function beregnSpillerPoint() {
@@ -82,19 +211,28 @@ function beregnSpillerPoint() {
 
 
 
+function restartButtonDisabled(act) {
+  document.querySelector(".blackjackRestart").disabled = act;
+}
 
 
 
-
-function buttonActivasion(act) {
+function spilButtonDisabled(act) {
   document.querySelector(".blackjackSpil").disabled = act;
+}
+
+function stopButtonDisabled(act) {
+  document.querySelector(".blackjackStop").disabled = act;
 }
 
 
 
 function stop() {
-  act = false;
-  buttonActivasion(act);
+  act = true;
+  restartButtonDisabled(act);
+  spilButtonDisabled(act);
+  stopButtonDisabled(act);
+  runHouseCards();
 }
 
 
@@ -104,19 +242,49 @@ function stop() {
 
 
 function rydBord() {
-  for (let i = 0; i < 6; i++) {
+  for (let x = 0; x < 6; x++) {
 
-    document.querySelectorAll(".ekstra-kort")[i].setAttribute("src", "images/cards/card-frame.png");
+    document.querySelectorAll(".ekstra-kort")[x].setAttribute("src", "images/cards/card-frame.png");
+    if (x < 4) {
+      document.querySelectorAll(".start-kort")[x].setAttribute("src", "images/cards/gray_back.png");
+    }
   }
+  if (cards.length < 10) {
+    shuffleCards();
+    alert("Kortene bliver blandet, da der er 10 eller færre kort tilbage i bunken.");
+    remainingNumberOfCardsInDeck = 52;
+  }
+  nextPlayerCard = 1;
+  nextHouseCard = 1;
+  card = "";
+  randomNumberBlackjack = 0;
+  cardAndValue = [];
+  cardValue = 0;
+  cardPlace = "";
+  playerPoints = 0;
+  housePoints = 0;
+  act = true;
+  stopButtonDisabled(act);
+  restartButtonDisabled();
+  act = false;
+  spilButtonDisabled(act);
+  bankenVinder = false;
+  spillerVinder = false;
+  duFik = "";
+  bankenFik = "";
+  rundensResultat = "";
+  resultatTilHTML.innerHTML = "";
+  resultatFelt.classList.remove("result-color-red");
+  resultatFelt.classList.remove("result-color-blue");
 }
 
-function blandKort() {
-  alleKort = [];
-  alleKort = [
-    ["AH", 1],
-    ['AC', 1],
-    ['AS', 1],
-    ['AD', 1],
+function shuffleCards() {
+  cards = [];
+  cards = [
+    ["AH", 11],
+    ['AC', 11],
+    ['AS', 11],
+    ['AD', 11],
     ['2H', 2],
     ['2C', 2],
     ['2S', 2],

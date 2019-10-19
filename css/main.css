@@ -227,7 +227,41 @@
     font-size: 10px !important;
   }
   .icon-size {
-    max-width: 50% !important;
+    max-width: 25% !important;
+  }
+  .jp-gevinst-size{
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .player-name {
+    font-size: 7px !important;
+  }
+
+  .blackjackRestart {
+    font-size: 7px !important;
+    padding: 1px 2px !important;
+    }
+
+  .blackjackSpil {
+    font-size: 7px !important;
+    padding: 1px 2px !important;
+  }
+
+  .blackjackStop {
+    font-size: 7px !important;
+    padding: 1px 2px !important;
+  }
+
+  .bj-gevinst {
+    font-size: 7px !important;
+  }
+  .icon-size {
+    max-width: 25% !important;
+  }
+  .jp-gevinst-size{
+    font-size: 15px !important;
   }
 }
 
@@ -308,4 +342,3 @@
   position: relative;
   top: 1px;
 }
- 

@@ -18,11 +18,29 @@
 }
 
 #regler {
-  background-color: blue;
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  font-family: sans-serif;
+  height: 1300px;
 }
 
-.rules {
-  height: 1000px;
+.rules-text-allign {
+  text-align: left;
+}
+
+.rules-top {
+  height: 50px;
+}
+
+.outlined {
+  color: grey;
+}
+
+.foot {
+  background: red;
+  height: 40px;
+  text-align: center;;
 }
 
 .jp-gevinst-size {
@@ -42,6 +60,7 @@
   font-family: sans-serif;
   background-color: green;
 }
+
 .color-jackpot {
   margin: 0;
   font-family: sans-serif;
@@ -90,7 +109,7 @@
 }
 
 .icon-size {
-  max-width: 100%;
+  max-width: 50%;
 }
 .player {
   text-align: center;
@@ -111,12 +130,15 @@
 .bj-gevinst {
   font-size: 25px;
 }
+
 .jp-text-size {
   font-size: 20px;
 }
+
 .jp-result-grey {
   color: grey;
 }
+
 .jp-result-purple {
   color: purple;
 }
@@ -182,11 +204,10 @@
   .bj-gevinst {
     font-size: 20px !important;
   }
+  
   .jp-text-size {
     font-size: 15px !important;
   }
-
-
 }
 
 @media (max-width: 835px) {
@@ -205,16 +226,18 @@
   .bj-gevinst {
     font-size: 15px !important;
   }
+
   .icon-size {
-    max-width: 75% !important;
+    max-width: 40% !important;
   }
+
   .jp-gevinst-size{
     font-size: 40px !important;
   }
+
   .jp-text-size {
     font-size: 10px !important;
   }
-
 }
 
 @media (max-width: 700px) {
@@ -240,9 +263,11 @@
   .bj-gevinst {
     font-size: 10px !important;
   }
+
   .icon-size {
-    max-width: 50% !important;
+    max-width: 30% !important;
   }
+
   .jp-gevinst-size{
     font-size: 40px !important;
   }
@@ -271,9 +296,11 @@
   .bj-gevinst {
     font-size: 7px !important;
   }
+
   .icon-size {
-    max-width: 35% !important;
+    max-width: 25% !important;
   }
+
   .jp-gevinst-size{
     font-size: 30px !important;
   }

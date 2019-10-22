@@ -5,6 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Manuels Spilleside</title>
+
+  <!-- indhold til søgemaskiner -->
+  <meta name="description" content="Her er en lille spilleside lavet som eksamensopgave.">
+
+<!-- Site icon -->
   <link rel="icon" href="images/favicon.ico">
 
   <!-- Bootstrap -->
@@ -15,34 +20,28 @@
 </head>
 
 <body>
+
+  <!-- Menu-linie -->
   <section id="top-menu">
     <div class="container-fluid row">
       <div class="col-3">
 
-        <!-- Nav Bar -->
+        <!-- Bootstrap Nav Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark">
-
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
             <ul class="navbar-nav ml-auto">
 
-              <li class="nav-item">
-                <p>.</p>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#blackjack">Blackjack</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#jackpot">Jackpot</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#regler">Regler</a>
-              </li>
-            </ul>
-          </div>
+              <li class="nav-item"><a class="nav-link" href="#blackjack">Blackjack</a></li>
+              <li class="nav-item"><a class="nav-link" href="#jackpot">Jackpot</a></li>
+              <li class="nav-item"><a class="nav-link" href="#regler">Regler</a></li>
 
+            </ul>
+
+          </div>
         </nav>
       </div>
 
@@ -58,236 +57,242 @@
       </div>
 
     </div>
-    </div>
-
-
   </section>
 
+<!-- Hvad der kommer frem, når man på mobil enhed scrolles ned på siden -->
+  <p>Du kan ikke opdatere 🙂 Refresh siden i stedet.</p>
 
-
-  <p>Du kan ikke opdatere :-)</p>
-
-
-
-
-
-
-
+<!-- Blackjack -->
   <section id="blackjack">
+
     <!-- Mellemrum, der ændres ift. size -->
     <div class="container-fluid row color-blackjack">
-      <div class="col-4">
-        <br>
-      </div>
-      <div class="col-4">
-        <br><br> <br>
-      </div>
-      <div class="col-4">
-        <br>
-      </div>
+      <div class="col-4"><br></div>
+      <div class="col-4"><br><br><br></div>
+      <div class="col-4"><br></div>
     </div>
-
-
 
     <!-- Tabel med kort, knapper og beskeder -->
     <table class="table-blackjack">
+
+      <!-- Row 1 -->
       <tr>
         <td></td>
-        <td><img class="card-size ekstra-kort pkort-3" src="" alt=""> </td>
-        <td class="player" colspan="2">
-          <p class="player-name">Dig</p>
-        </td>
+        <td><img class="card-size ekstra-kort pkort-3" src="" alt=""> </td> <!-- Her er spilers 1. ekstra kort -->
+        <td class="player" colspan="2"><p class="player-name">Dig</p></td>
         <td></td>
-        <td class="player" colspan="2">
-          <p class="player-name">"Banken"</p>
-        </td>
-        <td><img class="card-size ekstra-kort dkort-3" src="" alt=""> </td>
+        <td class="player" colspan="2"><p class="player-name">"Banken"</p></td>
+        <td><img class="card-size ekstra-kort dkort-3" src="" alt=""> </td> <!-- Her er bankens 1. ekstra kort -->
         <td></td>
       </tr>
 
+<!-- Row 2 -->
       <tr>
         <td></td>
-        <td><img class="card-size ekstra-kort pkort-4" src="" alt=""> </td>
-        <td><img class="card-size pkort-1 start-kort" src="images/cards/gray_back.png" alt=""> </td>
-        <td><img class="card-size pkort-2 start-kort" src="images/cards/gray_back.png" alt=""> </td>
+        <td><img class="card-size ekstra-kort pkort-4" src="" alt=""> </td> <!-- Her er spilers 2. ekstra kort -->
+        <td><img class="card-size pkort-1 start-kort" src="images/cards/gray_back.png" alt=""> </td> <!-- Her er spilers 1. kort -->
+        <td><img class="card-size pkort-2 start-kort" src="images/cards/gray_back.png" alt=""> </td> <!-- Her er spilers 2. kort -->
         <td></td>
-        <td><img class="card-size dkort-1 start-kort" src="images/cards/gray_back.png" alt=""> </td>
-        <td><img class="card-size dkort-2 start-kort" src="images/cards/gray_back.png" alt=""> </td>
-        <td><img class="card-size ekstra-kort dkort-4" src="" alt=""> </td>
+        <td><img class="card-size dkort-1 start-kort" src="images/cards/gray_back.png" alt=""> </td> <!-- Her er bankens 1. kort -->
+        <td><img class="card-size dkort-2 start-kort" src="images/cards/gray_back.png" alt=""> </td> <!-- Her er bankens 2. kort -->
+        <td><img class="card-size ekstra-kort dkort-4" src="" alt=""> </td> <!-- Her er bankens 2. ekstra kort -->
         <td></td>
       </tr>
+
+      <!-- Row 3 -->
       <tr>
         <td></td>
-        <td><img class="card-size ekstra-kort pkort-5" src="" alt=""> </td>
-        <td colspan="2">
-          <p class="bj-gevinst">Indskud = 5 kr.<br>Gevinst = 10 kr. <br>Blackjack = 20 kr.</p>
-        </td>
-
+        <td><img class="card-size ekstra-kort pkort-5" src="" alt=""> </td> <!-- Her er Spillers 3. ekstra kort -->
+        <td colspan="2"><p class="bj-gevinst">Indskud = 5 kr.<br>Gevinst = 10 kr. <br>Blackjack = 20 kr.</p></td>
         <td></td>
-        <td colspan="2">
-          <div id="resultat-felt">
-            <p class="bj-gevinst result"></p>
-          </div>
-
-        </td>
-
-        <td><img class="card-size ekstra-kort dkort-5" src="" alt=""> </td>
+        <td colspan="2"><div id="resultat-felt"><p class="bj-gevinst result"></p></div></td>
+        <td><img class="card-size ekstra-kort dkort-5" src="" alt=""> </td> <!-- Her er bankens 3. ekstra kort -->
         <td></td>
       </tr>
+
+      <!-- Row 4 -->
       <tr>
         <td></td>
         <td></td>
         <td colspan="2"><button id="blackjackRestartKnap" class="blackjackRestart">Nyt spil</button></td>
-
         <td></td>
         <td><button id="blackjackSpilKnap" class="blackjackSpil">Nyt kort</button></td>
-
         <td><button id="blackjackStopKnap" class="blackjackStop">Stop/stå</button></td>
-
         <td></td>
         <td></td>
       </tr>
     </table>
 
-
-
-
     <!-- Mellemrum, der ændres ift. size -->
     <div class="container-fluid row color-blackjack">
-      <div class="col-3 col-md-6 col-lg-12">
-        <br><br>
-      </div>
-      <div class="col-3 col-md-6 col-lg-12">
-        <br><br>
-      </div>
-      <div class="col-3 col-md-6 col-lg-12">
-        <br><br>
-      </div>
+      <div class="col-3 col-md-6 col-lg-12"><br><br></div>
+      <div class="col-3 col-md-6 col-lg-12"><br><br></div>
+      <div class="col-3 col-md-6 col-lg-12"><br><br></div>
     </div>
   </section>
 
-<section id="jackpot">
+<!-- Jackpot -->
+  <section id="jackpot">
     <div class="row color-jackpot">
-      <div class="col-3 col-md-6 col-lg-12">
-        <br>
-      </div>
-      <div class="col-3 col-md-6 col-lg-12">
-        <br>
-      </div>
-      <div class="col-3 col-md-6 col-lg-12">
-        <br>
-      </div>
-      <div class="col-3 col-md-6 col-lg-12">
-        <br>
-      </div>
+      <div class="col-3 col-md-6 col-lg-12"><br></div>
+      <div class="col-3 col-md-6 col-lg-12"><br></div>
+      <div class="col-3 col-md-6 col-lg-12"><br></div>
+      <div class="col-3 col-md-6 col-lg-12"><br></div>
     </div>
 
-
-
-
-
-
-
-
+<!-- Tabel med iconer og tekst -->
     <table class="table-jackpot">
+
+      <!-- Row 1 -->
       <tr>
-        <td>
+        <td></td>
         <td colspan="3">
           <table>
+            <!-- Row 1.1 -->
             <tr>
-              <td>
-                <img class="icon-size jp-1" src="images/jackpot/1.png" alt="">
-              </td>
+
+              <!-- De spillende ikoner vises her -->
+              <td><img class="icon-size jp-1" src="images/jackpot/1.png" alt=""></td>
               <td><img class="icon-size jp-2" src="images/jackpot/5.png" alt=""></td>
               <td><img class="icon-size jp-3" src="images/jackpot/14.png" alt=""></td>
             </tr>
           </table>
-
-
+          </td>
         <td></td>
       </tr>
-        <tr>
-          <td colspan="5">
-            <br>
 
-            <p id="jpresultat" class="jp-gevinst-size jp-gevinst-text jp-result-grey">resultat vises her</p>
-          </td>
-        </tr>
+      <!-- Row 2 -->
       <tr>
-        <td colspan="5">
 
-          <p class="jp-gevinst-size">Gevinster</p>
-        </td>
+        <!-- Her vises om du vinder eller taber -->
+        <td colspan="5"><br><p id="jpresultat" class="jp-gevinst-size jp-gevinst-text jp-result-grey">Resultat vises her</p></td>
+      </tr>
 
+      <!-- Row 3 -->
+      <tr>
+        <td colspan="5"><p class="jp-gevinst-size">Gevinster</p></td>
+      </tr>
+
+      <!-- Row 4 -->
       <tr>
         <td></td>
+
+        <!-- Her er gevinst for 3 x BAR -->
         <td><img class="icon-size" src="images/jackpot/3.png" alt=""></td>
         <td><img class="icon-size" src="images/jackpot/3.png" alt=""></td>
         <td><img class="icon-size" src="images/jackpot/3.png" alt=""></td>
         <td class="jp-text-size"> 3 x BAR = 500 kr.</td>
       </tr>
+
+      <!-- Row 5 -->
       <tr>
         <td></td>
+
+        <!-- Her er gevinst for 3 ens -->
         <td><img class="icon-size" src="images/jackpot/5.png" alt=""></td>
         <td><img class="icon-size" src="images/jackpot/5.png" alt=""></td>
         <td><img class="icon-size" src="images/jackpot/5.png" alt=""></td>
         <td class="jp-text-size"> 3 ens = 200 kr.</td>
       </tr>
+
+      <!-- Row 6 -->
       <tr>
         <td></td>
+
+        <!-- Her er gevinst for 2 ens -->
         <td><img class="icon-size" src="images/jackpot/17.png" alt=""></td>
         <td><img class="icon-size" src="images/jackpot/17.png" alt=""></td>
         <td><img class="icon-size" src="images/jackpot/10.png" alt=""></td>
         <td class="jp-text-size"> 2 ens = 50 kr.</td>
       </tr>
+
+      <!-- Row 7 -->
       <tr>
-        <td class="jp-text-size" style="color: grey;"> BAR i 1. felt = 40 kr.</td>
+
+        <!-- Længste tekst i table data for at få lige lange rows, så det centreres -->
+        <td class="jp-text-size outlined"> BAR i 1. felt = 40 kr.</td>
+
+        <!-- Her er gevinst for BAR i 1. felt -->
         <td><img class="icon-size" src="images/jackpot/3.png" alt=""></td>
         <td><img class="icon-size" src="images/jackpot/12.png" alt=""></td>
         <td><img class="icon-size" src="images/jackpot/13.png" alt=""></td>
         <td class="jp-text-size"> BAR i 1. felt = 40 kr.</td>
       </tr>
+
+      <!-- Row 8 -->
       <tr>
         <td></td>
+
+        <!-- Her er gevinst for 3 forskellige -->
         <td><img class="icon-size" src="images/jackpot/1.png" alt=""></td>
         <td><img class="icon-size" src="images/jackpot/2.png" alt=""></td>
         <td><img class="icon-size" src="images/jackpot/11.png" alt=""></td>
         <td class="jp-text-size"> 3 forskellige = 0 kr.</td>
       </tr>
+
+      <!-- Row 9 -->
       <tr>
+
+        <!-- Her er "håndtaget" til den enarmede tyveknægt -->
         <td colspan="5"><br> <br> <button id="jackpotStartKnap" class="jackpotStart">Start</button></td>
       </tr>
     </table>
 
-
-  <div class="container-fluid row color-jackpot">
-    <div class="col-3 col-md-6 col-lg-12">
-      <br><br><br><br><br><br>
+<!-- Afstand ift. size -->
+    <div class="container-fluid row color-jackpot">
+      <div class="col-3 col-md-6 col-lg-12"><br><br><br><br><br><br></div>
+      <div class="col-3 col-md-6 col-lg-12"><br><br><br><br><br><br></div>
+      <div class="col-3 col-md-6 col-lg-12"><br><br><br><br><br><br></div>
+      <div class="col-3 col-md-6 col-lg-12"><br><br><br><br><br><br></div>
     </div>
-    <div class="col-3 col-md-6 col-lg-12">
-      <br><br><br><br><br><br>
+  </section>
+
+  <!-- Her er reglerne for spil -->
+  <section id="regler">
+    <div class="container-fluid row">
+
+      <!-- Afstand fra top ift. size -->
+      <div class="col-12 rules-top"></div>
+      <div class="col-12 rules-top"></div>
+      <div class="col-12 rules-top"></div>
+
+      <!-- header med regeloverskrift -->
+      <div class="col-12 rules-top"><h1>Regler for spil</h1></div>
+
+      <div class="col-12 rules-top"></div>
+      <div class="col-12 col-md-1 rules"></div>
+
+      <!-- Underoverskrift for regler for Blackjack -->
+      <div class="col-12 col-md-4 rules"><h2>Blackjack</h2>
+
+        <!-- Regler for Blackjack -->
+        <p class="bj-gevinst rules-text-allign">Indskud : 5 kr.<br>Gevinst er efter indskud, det vil sige ved gevinst på 10 kr. vindes 5 kr., da 5 kr. er givet i indskud.</p>
+        <p class="bj-gevinst rules-text-allign">Det gælder om at komme tættest på 21.<br>Kommer man over 21, så taber man.<br>Banken vinder altid ved pointlighed, eller hvis banken har mere end spiller.<br>Ryger banken over 21, så vinder spiller.</p>
+        <p class="bj-gevinst rules-text-allign">ES = 11 point.<br>Billedkort = 10 point.<br>Øvrige kort = deres værdi.</p>
+      </div>
+
+      <div class="col-12 col-md-2 rules">
+      </div>
+
+      <!-- Underoverskrift for regler for Blackjack -->
+      <div class="col-12 col-md-4 rules">
+        <h2>Jackpot</h2>
+
+        <!-- Regler for Jackpot -->
+        <p class="bj-gevinst rules-text-allign">Indskud : 5 kr.<br>Gevinst er efter indskud, det vil sige ved gevinst på 50 kr. vindes 45 kr., da 5 kr. er givet i indskud.</p>
+      </div>
+
+
+      <div class="col-12 col-md-1"></div>
     </div>
-    <div class="col-3 col-md-6 col-lg-12">
-      <br><br><br><br><br><br>
-    </div>
-    <div class="col-3 col-md-6 col-lg-12">
-      <br><br><br><br><br><br>
-    </div>
+  </section>
 
-  </div>
-</section>
+  <!-- Footer -->
+  <footer id="footer" class="foot">
+    <p>Copyright - Manuel Roos - don_manuello@hotmail.com</p>
+  </footer>
 
-<section id="regler">
-<div class="container-fluid row">
-  <div class="col-md-6 rules">
 
-  </div>
-  <div class="col-md-6 rules">
-
-  </div>
-
-</div>
-</section>
 
 
   <!-- Site JavaScript -->
